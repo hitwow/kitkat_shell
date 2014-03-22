@@ -13,35 +13,56 @@
 #include <unistd.h>
 #include <string.h>
 
-void init_user_info()
+int init_user_info()
 {
 	struct passwd *uinfo;
+	int flag = 0;
 
 	uinfo = getpwuid(getuid());
 
 	uname = uinfo->pw_name;
 	upath = uinfo->pw_dir;
 	uhost = (char*)malloc(HOSTLEN * sizeof(char));
+
+	if (!uhost)
+		return 1;
+
 	gethostname(uhost, HOSTLEN);
-	get_shost();
-	get_uchar();
+	flag += get_shost();
+	flag += get_uchar();
+
+	if (flag)
+		return 1;
+	else
+		return 0;
 }
 
-void init_path_info()
+int init_path_info()
 {
 	tloc = (char*)malloc(LOCLEN * sizeof(char));
-	getcwd(tloc, LOCLEN);
-	get_sloc();
+
+	if (!tloc)
+		return 1;
+
+	if (!getcwd(tloc, LOCLEN))
+		return 1;
+
+	return get_sloc();
 }
 
-void get_shost()
+int get_shost()
 {
 	int i;
 	shost = (char*)malloc(HOSTLEN * sizeof(char));
 
+	if (!shost)
+		return 1;
+
 	for (i=0; uhost[i]!='.'; i++)
 		shost[i] = uhost[i];
 	shost[i] = '\0';
+
+	return 0;
 }
 
 void get_uchar()
@@ -52,11 +73,15 @@ void get_uchar()
 		uchar = '$';
 }
 
-void get_sloc()
+int get_sloc()
 {
 	int i;
 
 	sloc = (char*)malloc(SLOCLEN * sizeof(char));
+
+	if (!sloc)
+		return 1;
+
 	if (!strcmp(upath, tloc))
 		sloc = "~";
 	else if (!strcmp(tloc, "/"))
@@ -67,5 +92,7 @@ void get_sloc()
 		i++;
 		strcpy(sloc, tloc+i);
 	}
+
+	return 0;
 }
 

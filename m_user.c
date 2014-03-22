@@ -8,10 +8,17 @@
 #include <readline/history.h>
 #include <malloc.h>
 
-void init ()
+int init ()
 {
-    init_user_info();
-    init_path_info();
+	int flag = 0;
+
+    flag += init_user_info();
+    flag += init_path_info();
+
+    if (flag)
+    	return 1;
+    else
+    	return 0;
 }
 
 void show ()
