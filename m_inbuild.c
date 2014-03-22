@@ -27,7 +27,6 @@ int cd (char* path)
 {
 	int flag = 0;
 
-	p_path (path);
 	flag += chdir(path);
 
 	if (flag)
@@ -39,6 +38,11 @@ int cd (char* path)
 		return 1;
 
 	return 0;
+}
+
+void echo(char* sen)
+{
+	printf("%s\n", sen);
 }
 
 void p_path (char* path)

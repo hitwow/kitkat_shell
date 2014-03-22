@@ -11,6 +11,7 @@
 int pwd();
 int cd(char*);
 void sl_exit();
+void echo(char*);
 void p_path(char *);
 
 
