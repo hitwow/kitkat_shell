@@ -1,0 +1,12 @@
+#ifndef INFO_H_
+#define INFO_H_
+
+extern char* uname = NULL;//user name
+extern char* upath = NULL;//user path
+extern char* tloc = NULL;//true location
+extern char* sloc = NULL;//show location
+extern char* uhost = NULL;//host name
+extern char userch;//character of user
+
+
+#endif
