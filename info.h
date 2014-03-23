@@ -4,6 +4,8 @@
 #define HOSTLEN 30
 #define LOCLEN 100
 #define SLOCLEN 30
+#define IBNUM 8
+#define HISNUM 100
 
 //some information of the user and the folder;
 //

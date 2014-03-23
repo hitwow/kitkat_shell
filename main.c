@@ -6,6 +6,7 @@
  */
 #include <stdio.h>
 #include "m_user.h"
+#include "m_input.h"
 
 int main()
 {
@@ -17,7 +18,7 @@ int main()
 	{
 		show();
         cmd = input();
-		printf ("%s\n", cmd);
+		getcmd(cmd);
 	}
 
 	return 0;

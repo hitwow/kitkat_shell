@@ -8,11 +8,12 @@
 #ifndef M_INBUILD_H_
 #define M_INBUILD_H_
 
-int pwd();
-int cd(char*);
+void pwd();
+void cd(char*);
 void sl_exit();
 void echo(char*);
 void p_path(char *);
+void help();
 
 
 #endif /* M_INBUILD_H_ */

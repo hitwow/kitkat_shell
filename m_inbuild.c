@@ -8,36 +8,22 @@
 #include <unistd.h>
 #include <string.h>
 #include <malloc.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 #include "info.h"
 #include "getinfo.h"
 
-int pwd()
+void pwd()
 {
-	if (tloc != NULL)
-	{
-		printf ("%s\n", tloc);
-		return 0;
-	}
-	else
-		return 1;
+	printf ("%s\n", tloc);
 }
 
-int cd (char* path)
+void cd (char* path)
 {
-	int flag = 0;
+	chdir(path);
 
-	flag += chdir(path);
-
-	if (flag)
-		return 1;
-
-	flag += init_path_info();
-
-	if (flag)
-		return 1;
-
-	return 0;
+	init_path_info();
 }
 
 void echo(char* sen)
@@ -57,14 +43,26 @@ void p_path (char* path)
 	}
 }
 
+void help()
+{
+	FILE* fp;
+	char ch;
+
+	fp = fopen("help", "r");
+
+	while ((ch=getc(fp))!=EOF)
+		putchar(ch);
+
+	putchar('\n');
+}
+
 void sl_exit()
 {
 	free(uname);
 	free(uhost);
 	free(shost);
-	free(upath);
 	free(tloc);
-	free(sloc);
+	//free(sloc);
 
 	exit(0);
 }

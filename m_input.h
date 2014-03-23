@@ -8,6 +8,9 @@
 #ifndef M_INPUT_H_
 #define M_INPUT_H_
 
-
+void getcmd(char*);
+void docmd(char*, char*);
+void doexe(char*, char*);
+int doinbuild(char*, char*);
 
 #endif /* M_INPUT_H_ */
