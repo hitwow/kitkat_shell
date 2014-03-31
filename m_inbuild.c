@@ -13,6 +13,7 @@
 
 #include "info.h"
 #include "getinfo.h"
+#include "m_inbuild.h"
 
 void pwd()
 {
@@ -30,7 +31,7 @@ void echo(char* sen)
 {
 	printf("%s\n", sen);
 }
-
+/*
 void p_path (char* path)
 {
 	if (path[0] == '~')
@@ -42,7 +43,7 @@ void p_path (char* path)
 		path = npath;
 	}
 }
-
+*/
 void help()
 {
 	FILE* fp;

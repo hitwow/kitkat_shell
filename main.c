@@ -10,14 +10,14 @@
 
 int main()
 {
-	char* cmd;
+	char cmd[CMDLEN];
 
 	init();
 
 	while (1)
 	{
 		show();
-        cmd = input();
+        input(cmd);
 		getcmd(cmd);
 	}
 

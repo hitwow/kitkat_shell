@@ -4,39 +4,47 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <readline/readline.h>
-#include <readline/history.h>
 #include <malloc.h>
 
 void init ()
 {
     init_user_info();
     init_path_info();
-
 }
 
 void show ()
 {
-	printf("[%s@%s %s]%c ", uname, shost, sloc, uchar);
+	printf("[kk_shell][%s@%s %s]%c ", uname, shost, sloc, uchar);
 }
 
-char* input()
+void input(char* cmd)
 {
-    char* cmd = NULL;
+    memset(cmd, '\0', CMDLEN);
+	fgets(cmd, CMDLEN-1, stdin);
+    p_cmd(cmd);
+}
 
-	if (cmd)
-	{
-		free(cmd);
-		cmd = NULL;
-	}
-	cmd = readline("");
+void p_cmd(char* cmd)
+{
+    char ncmd[CMDLEN];
+    int i, j;
 
-	if (cmd&&*cmd)
-	{
-		add_history(cmd);
-	}
+    for (i=0, j=0; i<strlen(cmd); i++)
+    {
+        if (cmd[i] == '~')
+        {
+        	ncmd[j++] = '\0';
+            strcat (ncmd, upath);
+            j += strlen(upath);
+        }
+        else
+        {
+            ncmd[j] = cmd[i];
+            j++;
+        }
+    }
 
-    return cmd;
+    strcpy(cmd, ncmd);
 }
 
 void output()

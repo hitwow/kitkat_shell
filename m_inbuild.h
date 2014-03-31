@@ -12,7 +12,7 @@ void pwd();
 void cd(char*);
 void sl_exit();
 void echo(char*);
-void p_path(char *);
+//void p_path(char *);
 void help();
 
 
