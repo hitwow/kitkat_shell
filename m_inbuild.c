@@ -31,19 +31,39 @@ void echo(char* sen)
 {
 	printf("%s\n", sen);
 }
-/*
-void p_path (char* path)
-{
-	if (path[0] == '~')
-	{
-		char npath[LOCLEN];
 
-		strcpy(npath, upath);
-		strcat(npath, path+1);
-		path = npath;
+void inalias(char* s, char* t)
+{
+	FILE* fp;
+	alnode al;
+
+	fp = fopen("alias", "a");
+	strcpy(al.sc, s);
+	strcpy(al.tc, t);
+	fwrite(&al, sizeof(al), 1, fp);
+
+	fclose(fp);
+}
+
+void alias()
+{
+	FILE* fp;
+	alnode al;
+
+	fp = fopen("alias", "r");
+	while (fread(&al, sizeof(al), 1, fp))
+	{
+		printf("%s='%s'\n", al.sc, al.tc);
 	}
 }
-*/
+
+void inhistory(char* cmd)
+{
+	FILE* fp;
+
+	fp = fopen
+}
+
 void help()
 {
 	FILE* fp;

@@ -51,6 +51,13 @@ int doinbuild(char* cmd, char** para)
 		sl_exit();
 	else if (!strcmp(cmd, "help"))
 		help();
+	else if (!strcmp(cmd, "alias"))
+	{
+		if (!para[1])
+			alias();
+		else
+			inalias(para[1], para[2]);
+	}
 	else
 		return 0;
 

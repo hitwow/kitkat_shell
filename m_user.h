@@ -8,5 +8,6 @@ void show ();
 void input (char*);
 void p_cmd(char *);
 void output();
+void init_history();
 
 #endif /* M_USER_H */

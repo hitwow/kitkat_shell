@@ -5,7 +5,6 @@
 #define LOCLEN 100
 #define SLOCLEN 30
 #define IBNUM 8
-#define HISNUM 100
 
 //some information of the user and the folder;
 //
@@ -17,5 +16,9 @@ char  uchar;
 
 char* tloc;
 char* sloc;
+
+int hisnum;
+
+char** histable;
 
 #endif /* INFO_H */

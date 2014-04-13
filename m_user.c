@@ -10,6 +10,7 @@ void init ()
 {
     init_user_info();
     init_path_info();
+    init_history();
 }
 
 void show ()
@@ -33,7 +34,7 @@ void p_cmd(char* cmd)
     {
         if (cmd[i] == '~')
         {
-        	ncmd[j++] = '\0';
+        	ncmd[j] = '\0';
             strcat (ncmd, upath);
             j += strlen(upath);
         }
@@ -47,7 +48,12 @@ void p_cmd(char* cmd)
     strcpy(cmd, ncmd);
 }
 
-void output()
+void init_history()
 {
+	int i;
+
+	hisnum = 100;
+
+	histable = (char**)malloc(hisnum);
 
 }
