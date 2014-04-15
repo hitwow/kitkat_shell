@@ -18,7 +18,7 @@ char* tloc;
 char* sloc;
 
 int hisnum;
-
 char** histable;
+int hispos;
 
 #endif /* INFO_H */

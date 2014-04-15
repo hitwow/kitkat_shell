@@ -59,9 +59,35 @@ void alias()
 
 void inhistory(char* cmd)
 {
-	FILE* fp;
+	char* tmp = histable[hispos];
 
-	fp = fopen
+	histable[hispos++] = cmd;
+	if (tmp)
+		free(tmp);
+	if (hispos==hisnum)
+		hispos = 0;
+}
+
+void history()
+{
+	int tmp = hispos;
+	int i = 0;
+
+	if (!histable[hispos])
+	{
+		if (!hispos)
+			return;
+		else
+			hispos = 0;
+	}
+
+	do{
+		printf("\t%d\t%s\n", i, histable[hispos]);
+		i++;
+		hispos++;
+		if (hispos==hisnum)
+			hispos = 0;
+	}while(hispos!=tmp);
 }
 
 void help()
@@ -84,6 +110,29 @@ void sl_exit()
 	free(shost);
 	free(tloc);
 	//free(sloc);
+
+	int tmp = hispos;
+	int i = 0;
+	FILE* fp;
+
+	fp = fopen("history", "w");
+
+	if (!histable[hispos])
+	{
+		if (!hispos)
+			exit(0);
+		else
+			hispos = 0;
+	}
+
+	do{
+		fwrite(histable[hispos], CMDLEN, 1, fp);
+		free(histable[hispos]);
+		i++;
+		hispos++;
+		if (hispos==hisnum)
+			hispos = 0;
+	}while(hispos!=tmp);
 
 	exit(0);
 }

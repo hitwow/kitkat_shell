@@ -58,6 +58,8 @@ int doinbuild(char* cmd, char** para)
 		else
 			inalias(para[1], para[2]);
 	}
+	else if (!strcmp(cmd, "history"))
+		history();
 	else
 		return 0;
 

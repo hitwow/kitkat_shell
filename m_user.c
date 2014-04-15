@@ -27,7 +27,7 @@ void input(char* cmd)
 
 void p_cmd(char* cmd)
 {
-    char ncmd[CMDLEN];
+    char ncmd[CMDLEN] = "\0";
     int i, j;
 
     for (i=0, j=0; i<strlen(cmd); i++)
@@ -50,10 +50,26 @@ void p_cmd(char* cmd)
 
 void init_history()
 {
+	FILE* fp;
+	char* tmp;
 	int i;
 
-	hisnum = 100;
+	hispos = 0;
+	hisnum = 10;
+	fp = fopen("history", "ab+");
 
-	histable = (char**)malloc(hisnum);
+	histable = (char**)malloc(hisnum*4);
+	for (i=0; i<hisnum; i++)
+		histable[i] = NULL;
 
+	tmp = (char*)malloc(CMDLEN);
+	while (fread(tmp, 100, 1, fp))
+	{
+		histable[hispos++] = tmp;
+		tmp = (char*)malloc(CMDLEN);
+		if (hispos==hisnum)
+			hispos = 0;
+	}
+
+	fclose(fp);
 }
