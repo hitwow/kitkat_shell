@@ -7,7 +7,8 @@
 #define IBNUM 8
 
 //some information of the user and the folder;
-//
+char* cmd;
+
 char* uname;
 char* uhost;
 char* shost;
@@ -20,5 +21,6 @@ char* sloc;
 int hisnum;
 char** histable;
 int hispos;
+char* show;
 
 #endif /* INFO_H */

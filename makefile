@@ -1,7 +1,7 @@
 obj = main.o getinfo.o m_user.o m_inbuild.o m_input.o
 
 kk_shell : $(obj)
-	gcc -o kk_shell $(obj) 
+	gcc -o kk_shell $(obj) -D READLINE_ON -I /usr/include -lreadline -ltermcap 
 
 main.o : main.c m_user.h
 	cc -g -c main.c

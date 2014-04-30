@@ -1,0 +1,68 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ASM_SRCS	Debug/sources.mk	/^ASM_SRCS := $/;"	m
+CMDLEN	m_user.h	4;"	d
+C_DEPS	Debug/sources.mk	/^C_DEPS := $/;"	m
+C_SRCS	Debug/sources.mk	/^C_SRCS := $/;"	m
+EXECUTABLES	Debug/sources.mk	/^EXECUTABLES := $/;"	m
+GETINFO_H_	getinfo.h	9;"	d
+HOSTLEN	info.h	4;"	d
+IBNUM	info.h	7;"	d
+INFO_H	info.h	2;"	d
+LIBS	Debug/objects.mk	/^LIBS :=$/;"	m
+LOCLEN	info.h	5;"	d
+M_INBUILD_H_	m_inbuild.h	9;"	d
+M_INPUT_H_	m_input.h	9;"	d
+M_USER_H	m_user.h	2;"	d
+OBJS	Debug/sources.mk	/^OBJS := $/;"	m
+OBJ_SRCS	Debug/sources.mk	/^OBJ_SRCS := $/;"	m
+O_SRCS	Debug/sources.mk	/^O_SRCS := $/;"	m
+PARNUM	m_input.h	11;"	d
+RM	Debug/makefile	/^RM := rm -rf$/;"	m
+SLOCLEN	info.h	6;"	d
+SUBDIRS	Debug/sources.mk	/^SUBDIRS := \\$/;"	m
+S_UPPER_SRCS	Debug/sources.mk	/^S_UPPER_SRCS := $/;"	m
+USER_OBJS	Debug/objects.mk	/^USER_OBJS :=$/;"	m
+alias	m_inbuild.c	/^void alias()$/;"	f
+alnode	m_inbuild.h	/^}alnode;$/;"	t	typeref:struct:__anon1
+cd	m_inbuild.c	/^void cd (char* path)$/;"	f
+cmd	info.h	/^char* cmd;$/;"	v
+docmd	m_input.c	/^void docmd(char* cmd, char** para)$/;"	f
+doexe	m_input.c	/^void doexe(char* cmd, char** para)$/;"	f
+doinbuild	m_input.c	/^int doinbuild(char* cmd, char** para)$/;"	f
+echo	m_inbuild.c	/^void echo(char* sen)$/;"	f
+get_shost	getinfo.c	/^void get_shost()$/;"	f
+get_sloc	getinfo.c	/^void get_sloc()$/;"	f
+get_uchar	getinfo.c	/^void get_uchar()$/;"	f
+getcmd	m_input.c	/^void getcmd(char* cmd)$/;"	f
+help	m_inbuild.c	/^void help()$/;"	f
+hisnum	info.h	/^int hisnum;$/;"	v
+hispos	info.h	/^int hispos;$/;"	v
+histable	info.h	/^char** histable;$/;"	v
+history	m_inbuild.c	/^void history()$/;"	f
+inalias	m_inbuild.c	/^void inalias(char* s, char* t)$/;"	f
+inhistory	m_inbuild.c	/^void inhistory(char* cmd)$/;"	f
+init	m_user.c	/^void init ()$/;"	f
+init_history	m_user.c	/^void init_history()$/;"	f
+init_path_info	getinfo.c	/^void init_path_info()$/;"	f
+init_user_info	getinfo.c	/^void init_user_info()$/;"	f
+input	m_user.c	/^void input()$/;"	f
+main	main.c	/^int main()$/;"	f
+obj	makefile	/^obj = main.o getinfo.o m_user.o m_inbuild.o m_input.o$/;"	m
+p_cmd	m_user.c	/^void p_cmd()$/;"	f
+pwd	m_inbuild.c	/^void pwd()$/;"	f
+sc	m_inbuild.h	/^	char sc[CMDLEN];$/;"	m	struct:__anon1
+shost	info.h	/^char* shost;$/;"	v
+show	m_user.c	/^void show ()$/;"	f
+sl_exit	m_inbuild.c	/^void sl_exit()$/;"	f
+sloc	info.h	/^char* sloc;$/;"	v
+tc	m_inbuild.h	/^	char tc[CMDLEN];$/;"	m	struct:__anon1
+tloc	info.h	/^char* tloc;$/;"	v
+uchar	info.h	/^char  uchar;$/;"	v
+uhost	info.h	/^char* uhost;$/;"	v
+uname	info.h	/^char* uname;$/;"	v
+upath	info.h	/^char* upath;$/;"	v

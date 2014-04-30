@@ -25,6 +25,7 @@ void cd (char* path)
 	chdir(path);
 
 	init_path_info();
+    init_show();
 }
 
 void echo(char* sen)
@@ -60,10 +61,12 @@ void alias()
 void inhistory(char* cmd)
 {
 	char* tmp = histable[hispos];
+    
+    if (tmp)
+        free(tmp);
 
 	histable[hispos++] = cmd;
-	if (tmp)
-		free(tmp);
+
 	if (hispos==hisnum)
 		hispos = 0;
 }

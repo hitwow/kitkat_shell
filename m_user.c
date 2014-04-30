@@ -1,51 +1,56 @@
 #include "m_user.h"
 #include "getinfo.h"
 #include "info.h"
+#include "m_inbuild.h"
 
 #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
+#include <readline/readline.h>
 
 void init ()
 {
     init_user_info();
     init_path_info();
     init_history();
+    init_show();
 }
 
-void show ()
-{
-	printf("[kk_shell][%s@%s %s]%c ", uname, shost, sloc, uchar);
-}
 
-void input(char* cmd)
+void input()
 {
-    memset(cmd, '\0', CMDLEN);
-	fgets(cmd, CMDLEN-1, stdin);
-    p_cmd(cmd);
-}
-
-void p_cmd(char* cmd)
-{
-    char ncmd[CMDLEN] = "\0";
-    int i, j;
-
-    for (i=0, j=0; i<strlen(cmd); i++)
+    char* tcmd = NULL;
+	tcmd = readline(show);
+    
+    if ((tcmd!=NULL)&&(&tcmd!=NULL))
     {
-        if (cmd[i] == '~')
+        add_history(tcmd);
+        inhistory(tcmd);
+    }
+
+    p_cmd(tcmd);
+}
+
+void p_cmd(char* tcmd)
+{
+    int i, j;
+    cmd = (char*)malloc(CMDLEN);
+
+    for (i=0, j=0; i<strlen(tcmd); i++)
+    {
+        if (tcmd[i] == '~')
         {
-        	ncmd[j] = '\0';
-            strcat (ncmd, upath);
+        	cmd[j] = '\0';
+            strcat (cmd, upath);
             j += strlen(upath);
         }
         else
         {
-            ncmd[j] = cmd[i];
+            cmd[j] = tcmd[i];
             j++;
         }
     }
-
-    strcpy(cmd, ncmd);
+    cmd[j] = '\0';
 }
 
 void init_history()
@@ -72,4 +77,10 @@ void init_history()
 	}
 
 	fclose(fp);
+}
+
+void init_show()
+{
+    show = (char*)malloc(100);
+    sprintf(show, "[kk_shell][%s@%s %s]%c ", uname, shost, sloc, uchar);
 }

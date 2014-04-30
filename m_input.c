@@ -19,7 +19,7 @@ void getcmd(char* cmd)
 	int pnum = 0;
 
 	para[0] = cmd;
-	while (cmd[i]!='\n')
+	while (cmd[i]!='\0')
 	{
 		if (cmd[i]==' ')
 		{

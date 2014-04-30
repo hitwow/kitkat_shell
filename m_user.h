@@ -4,10 +4,10 @@
 #define CMDLEN 100
 
 void init ();
-void show ();
-void input (char*);
-void p_cmd(char *);
+void input ();
+void p_cmd(char*);
 void output();
 void init_history();
+void init_show();
 
 #endif /* M_USER_H */

@@ -9,20 +9,16 @@
 #include "m_user.h"
 #include "m_input.h"
 #include "m_inbuild.h"
+#include "info.h"
 
 int main()
 {
-	char* cmd;
-
 	init();
 
 	while (1)
 	{
-		cmd = (char*)malloc(CMDLEN);
-		show();
-      input(cmd);
-      inhistory(cmd);
-		getcmd(cmd);
+        input();
+        getcmd(cmd);
 	}
 
 	return 0;
