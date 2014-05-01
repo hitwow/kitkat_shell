@@ -108,34 +108,31 @@ void help()
 
 void sl_exit()
 {
-	free(uname);
-	free(uhost);
-	free(shost);
-	free(tloc);
-	//free(sloc);
+    int tmp = hispos;
+    int i = 0;
+    FILE* fp;
 
-	int tmp = hispos;
-	int i = 0;
-	FILE* fp;
-
-	fp = fopen("history", "w");
-
-	if (!histable[hispos])
-	{
-		if (!hispos)
-			exit(0);
-		else
-			hispos = 0;
-	}
-
-	do{
-		fwrite(histable[hispos], CMDLEN, 1, fp);
-		free(histable[hispos]);
-		i++;
-		hispos++;
-		if (hispos==hisnum)
-			hispos = 0;
-	}while(hispos!=tmp);
+    fp = fopen("history", "w");
+        
+    if (!histable[hispos])
+    {
+        if (!hispos)
+            exit(0);
+        else
+            hispos = 0;
+    }
+    do{
+        fwrite(histable[hispos], CMDLEN, 1, fp);
+        i++;
+        hispos++;
+        if (hispos==hisnum)
+            hispos = 0;
+    }while(hispos!=tmp);
 
 	exit(0);
+}
+
+void do_shell()
+{
+    return;
 }

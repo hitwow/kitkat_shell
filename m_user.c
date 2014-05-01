@@ -4,6 +4,7 @@
 #include "m_inbuild.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <malloc.h>
 #include <readline/readline.h>
@@ -20,16 +21,37 @@ void init ()
 void input()
 {
     char* tcmd = NULL;
+    char* tcmd2 = NULL;
 	tcmd = readline(show);
-    
+
     if ((tcmd!=NULL)&&(&tcmd!=NULL))
     {
-        add_history(tcmd);
-        inhistory(tcmd);
+        if (tcmd[0]=='!')
+        {
+            tcmd2 = (char*)malloc(CMDLEN);
+            if (!histable[hispos])
+                strcpy(tcmd2, histable[atoi(tcmd+1)]);
+            else
+                strcpy(tcmd2, histable[hispos+atoi(tcmd+1)]);
+            printf("%s\n", tcmd2);
+            init_cmd(tcmd2);
+        }
+        else
+            init_cmd(tcmd);
     }
-
-    p_cmd(tcmd);
 }
+
+void init_cmd(char* tcmd)
+{
+    add_history(tcmd);
+    inhistory(tcmd);
+
+    if (tcmd[0]=='.'&&tcmd[1]=='/')
+        strcpy(cmd, tcmd+2);
+    else
+        p_cmd(tcmd);
+}
+
 
 void p_cmd(char* tcmd)
 {

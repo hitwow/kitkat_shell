@@ -24,6 +24,7 @@ void inalias(char*, char*);
 void alias();
 void inhistory(char*);
 void history();
+void do_shell();
 
 
 #endif /* M_INBUILD_H_ */

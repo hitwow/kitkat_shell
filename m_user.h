@@ -5,6 +5,7 @@
 
 void init ();
 void input ();
+void init_cmd(char*);
 void p_cmd(char*);
 void output();
 void init_history();
